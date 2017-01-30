@@ -16,7 +16,9 @@ const propTypes = {
   reverse: PropTypes.bool,
   className: PropTypes.string,
   tagName: PropTypes.string,
-  children: PropTypes.node
+  children: PropTypes.node,
+  first: PropTypes.string,
+  last: PropTypes.string
 };
 
 const classMap = {
@@ -39,6 +41,14 @@ function getClassNames(props) {
 
   if (props.reverse) {
     extraClasses.push(style.reverse);
+  }
+
+  if (props.first) {
+    extraClasses.push(style['first-' + props.first]);
+  }
+
+  if (props.last) {
+    extraClasses.push(style['last-' + props.last]);
   }
 
   return Object.keys(props)

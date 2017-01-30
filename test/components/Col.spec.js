@@ -31,6 +31,22 @@ describe('Col', () => {
     expect(className).toContain(style['col-md-3']);
   });
 
+  it('Should add "first-*" class if "first" property is set', () => {
+    renderer.render(<Col first="md"/>);
+
+    const { className } = renderer.getRenderOutput().props;
+
+    expect(className).toContain(style['first-md']);
+  });
+
+  it('Should add "last-*" class if "last" property is set', () => {
+    renderer.render(<Col last="md"/>);
+
+    const { className } = renderer.getRenderOutput().props;
+
+    expect(className).toContain(style['last-md']);
+  });
+
   it('Should support auto-width', () => {
     renderer.render(<Col xs sm md lg />);
     const { className } = renderer.getRenderOutput().props;
